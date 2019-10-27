@@ -15,10 +15,7 @@ You need:
 * Kubernetes 1.8
 * [Helm](https://helm.sh/)
 
-```bash
-helm install --name myzk incubator/zookeeper --set servers=1,heap="1G"
-helm del --purge hbase;helm install . --name hbase
-```
+Please deploy [chenseanxy/helm-hadoop-3](https://github.com/chenseanxy/helm-hadoop-3) first before deploying this chart.
 
 ## Architecture
 
