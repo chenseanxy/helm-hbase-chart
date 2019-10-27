@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "hbase.name" . }}-hbase-master
+  name: {{ template "hbase.fullname" . }}-master
   labels:
     app: {{ template "hbase.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}

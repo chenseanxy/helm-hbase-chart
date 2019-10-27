@@ -1,9 +1,9 @@
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ template "hbase.name" . }}-hbase-master
+  name: {{ template "hbase.fullname" . }}-master
   labels:
-    app: {{ template "hadoop.name" . }}
+    app: {{ template "hbase.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -11,7 +11,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: {{ template "hadoop.name" . }}
+      app: {{ template "hbase.name" . }}
       release: {{ .Release.Name }}
       component: hbase-master
   minAvailable: 1 # FIXME: HA?

@@ -20,7 +20,7 @@ data:
       </property>
       <property>
         <name>hbase.rootdir</name>
-        <value>hdfs://{{ template "hbase.name" . }}-hdfs-nn:9000/hbase</value>
+        <value>hdfs://{{ .Values.hbase.hdfs.name }}-hdfs-nn:9000/hbase</value>
       </property>
       <property>
         <name>hbase.cluster.distributed</name>
@@ -64,4 +64,4 @@ data:
       /opt/hbase/bin/hbase-daemon.sh --config /opt/hbase/conf start regionserver
     fi
 
-    tail -f opt/hbase/logs/*
+    tail -f /opt/hbase/logs/*

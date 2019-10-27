@@ -1,22 +1,20 @@
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
-  name: {{ template "hbase.name" . }}-hbase-rs
-  annotations:
-    checksum/config: {{ include (print $.Template.BasePath "/hadoop-configmap.yaml") . | sha256sum }}
+  name: {{ template "hbase.name" . }}-rs
   labels:
-    app: {{ template "hadoop.name" . }}
+    app: {{ template "hbase.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
     component: hbase-rs
 spec:
-  serviceName: {{ template "hbase.name" . }}-hbase-rs
+  serviceName: {{ template "hbase.name" . }}-rs
   replicas: {{ .Values.hdfs.dataNode.replicas }}
   template:
     metadata:
       labels:
-        app: {{ template "hadoop.name" . }}
+        app: {{ template "hbase.name" . }}
         release: {{ .Release.Name }}
         component: hbase-rs
     spec:
@@ -25,8 +23,8 @@ spec:
           - topologyKey: "kubernetes.io/hostname"
             labelSelector:
               matchLabels:
-                app:  {{ template "hadoop.name" . }}
-                release: {{ .Release.Name | quote }}
+                app:  {{ .Values.hbase.hdfs.name }}
+                release: {{ .Values.hbase.hdfs.release | quote }}
                 component: hdfs-nn
       terminationGracePeriodSeconds: 0
       containers:
