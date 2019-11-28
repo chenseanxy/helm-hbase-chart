@@ -3,7 +3,7 @@
 # Current apache hbase releases: http://hbase.apache.org/releases.html
 
 HADOOP_30_VERSION = 3.1.2
-HBASE_VERSION = 1.4.10
+HBASE_VERSION = 2.1.7
 
 DOCKER = docker
 DOCKER_REPO = chenseanxy/hbase

@@ -23,6 +23,14 @@ data:
         <value>hdfs://{{ .Values.hbase.hdfs.name }}-hdfs-nn:9000/hbase</value>
       </property>
       <property>
+        <name>hbase.unsafe.stream.capability.enforce</name>
+        <value>false</value>
+      </property>
+      <property> 
+        <name>hbase.wal.provider</name> 
+        <value>filesystem</value> 
+      </property> 
+      <property>
         <name>hbase.cluster.distributed</name>
         <value>true</value>
       </property>
