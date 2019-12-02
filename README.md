@@ -4,18 +4,26 @@ Original chart from [warp-poke/hbase-helm](https://github.com/warp-poke/hbase-he
 
 A chart to deploy Hbase with Hadoop using Kubernetes. Heavily inspired by the [Hadoop chart](https://github.com/kubernetes/charts/tree/master/stable/hadoop).
 
-## How-to contribute
-
-This chart was developed without former k8s experience, please help us improve the chart by contributing to it!
-
 ## Getting started
 
 You need:
 
-* Kubernetes 1.8
+* Kubernetes
 * [Helm](https://helm.sh/)
 
-Please deploy [chenseanxy/helm-hadoop-3](https://github.com/chenseanxy/helm-hadoop-3) first before deploying this chart.
+Required charts: 
+
+ * Zookeeper: `incubator/zookeeper` from helm/charts
+
+ * Hadoop: `chenseanxy/helm-hadoop-3` from [here](https://github.com/chenseanxy/helm-hadoop-3)
+
+## Config
+
+In `values.yaml`:
+
+`hbase.hdfs.name`, `hbase.hdfs.release`: point to your Hadoop deployment
+
+`hbase.zookeeper.quorum`: Zookeeper address:port
 
 ## Architecture
 
@@ -41,4 +49,3 @@ There's a YAML per role and per functionality. Binding is done through [Selector
 
 * Namenode HA
 * Hbase Master HA
-* Include Zookeeper into the Charts
