@@ -2,6 +2,9 @@
 
 Original chart from [warp-poke/hbase-helm](https://github.com/warp-poke/hbase-helm), modified to work with [chenseanxy/helm-hadoop-3](https://github.com/chenseanxy/helm-hadoop-3) chart.
 
+Current Version: HBase 2.1.7 based on Hadoop 3.1.2
+For HBase 1 chart, use tag [1.4.10-hadoop3.1.2](https://github.com/chenseanxy/helm-hbase-chart/tree/1.4.10-hadoop3.1.2)
+
 A chart to deploy Hbase with Hadoop using Kubernetes. Heavily inspired by the [Hadoop chart](https://github.com/kubernetes/charts/tree/master/stable/hadoop).
 
 ## Getting started

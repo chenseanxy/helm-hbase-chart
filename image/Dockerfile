@@ -5,24 +5,8 @@ ARG VERSION=
 
 ADD hbase-${VERSION}-bin.tar.gz /opt
 
-RUN cd /opt && ln -s ./hbase-${VERSION} hbase
+RUN cd /opt && ln -s ./hbase-${VERSION} hbase && \
+    cp hbase/lib/client-facing-thirdparty/htrace-core-3.1.0-incubating.jar hbase/lib && \
+    .
 
 WORKDIR /opt/hbase
-
-# REST API
-EXPOSE 8080
-# Thrift API
-EXPOSE 9090
-
-# Zookeeper port
-EXPOSE 2181
-
-# Master port
-EXPOSE 16000
-# Master info port
-EXPOSE 16010
-
-# Regionserver port
-EXPOSE 16020
-# Regionserver info port
-EXPOSE 16030
